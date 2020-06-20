@@ -7,6 +7,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 //import static controller.TeleButtons.setButtons;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
 import static controller.TeleUpdate.runUpdate;
@@ -32,7 +33,7 @@ public class Bot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         try {
             runUpdate(update);
-        } catch (TelegramApiException | IOException e) {
+        } catch (TelegramApiException | IOException | UnsupportedAudioFileException e) {
             e.printStackTrace();
         }
     }
